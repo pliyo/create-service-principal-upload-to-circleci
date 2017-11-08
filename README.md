@@ -5,3 +5,16 @@ For example, to store the `appId`, `displayName`, `name`, `pass` or `tenant` som
 
 You can read about how to do that from here:
 https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-service-principal
+
+```
+# Usage
+.\ContainerAutomation.ps1 -SubscriptionId yoursubscriptionId' -ResourceGroup yourresourcegroup -ClusterName yourclustername
+```
+
+
+
+
+
+
+
+
