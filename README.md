@@ -6,8 +6,14 @@ For example, to store the `appId`, `displayName`, `name`, `pass` or `tenant` som
 You can read about how to do that from here:
 https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-service-principal
 
-```
+# Requirements
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
+
 # Usage
+You can get your subscription id using `az account`
+
+```
 .\ContainerAutomation.ps1 -SubscriptionId yoursubscriptionId' -ResourceGroup yourresourcegroup -ClusterName yourclustername
 ```
 
