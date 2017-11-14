@@ -11,18 +11,20 @@
 
 az login
 
+Write-Output "Setting your SubscriptionId as your current subscription"
 az account set --subscription $SubscriptionId
-
+Write-Output "You are in:"
+az account show
 Write-Output "Creating resource name..."
 az group create --name $ResourceGroup --location $Location
-
 Write-Output "Creating service principal..."
-
 $servicePrincipal = az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroup"
+
 Write-Output "SERVICE PRINCIPAAAAAAAAAL!"
 Write-Output $servicePrincipal
 
 $json = $servicePrincipal | ConvertFrom-Json
 #Expected response: 
 # { appId = x, displayName = y, name = z, pass = u, tenant = i  }
-# Now you can use this information for whatever you please
+# Now you can use this data if you please
+
