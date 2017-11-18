@@ -4,10 +4,8 @@
     [Parameter(Mandatory = $true,      Position = 1,  HelpMessage = 'Name of your resource group')][ValidateNotNullorEmpty()]
     [String]$ResourceGroup,
     [Parameter(Mandatory = $false,      Position = 2,  HelpMessage = 'Location of your resource group')]
-    [String]$Location = "westus",
-    [Parameter(Mandatory = $true,      Position = 2,  HelpMessage = 'Your cluster name`')]
-    [String]$ClusterName
-)
+    [String]$Location = "westus"
+) 
 
 az login
 
@@ -18,7 +16,7 @@ az account show
 Write-Output "Creating resource name..."
 az group create --name $ResourceGroup --location $Location
 Write-Output "Creating service principal..."
-$servicePrincipal = az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroup"
+$servicePrincipal = az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SubscriptionId"
 
 Write-Output "SERVICE PRINCIPAAAAAAAAAL!"
 Write-Output $servicePrincipal
